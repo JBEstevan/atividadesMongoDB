@@ -1,42 +1,18 @@
-import conn from "./conn.js"
+import mongoose from "mongoose";
 
-const Schema = conn.Schema
+const mongoDB =
+"mongodb+srv://jleachenski:ISSIN64KOwheXth2@cluster0.osw4i.mongodb.net/";
+const database = "subdocumentos";
 
-const americanoMedioSchema = new Schema({
-    nome: {
-        type: Schema.Types.String,
-        required: true
-    },
-    dataNascimento: {
-        type: Schema.Types.String,
-        required: true
-    }
-})
-
-const cadeiraEletrica = new Schema({
-    voltagem: {
-        type: Schema.Types.Number,
-        required: true
-    },
-    americano: americanoMedioSchema
-})
-
-const CadeiraEletrica = conn.model("CadeiraEletrica", cadeiraEletrica)
-
-
-const inserir = async () => {
-    try {
-        await CadeiraEletrica.create({
-            americano: {
-                nome: "John Peterson",
-                dataNascimento: "2000/10/05"
-            },
-            voltagem: 380
-        })
-        
-    } catch (error) {
-        console.log(error)
-    }
+const main = async () => {
+try {
+    await mongoose.connect(mongoDB + database);
+    console.log("Conectado com sucesso");
+} catch (error) {
+    console.log(error);
 }
+};
 
-inserir()
+main();
+
+export default mongoose
