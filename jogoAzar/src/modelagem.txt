@@ -1,0 +1,26 @@
+Bicho: {
+ - nome: String
+}
+
+Numero: {
+ - numero: Number,
+ - bicho: Ref
+}
+
+Jogo: {
+ - numeroEscolhido: [Ref], Indefinido na criação,
+ - vencedores: [Ref], Computado,
+ - dataInicio: Date,
+ - dataFim: Date
+}
+
+Aposta: {
+ - valor: Number,
+ - retorno: Number, indefinido na criação,
+ - numeros: [Ref],
+ - chavePix: String,
+ - createdAt: Date,
+ - jogo: Ref
+}
+
+Criar também um serviço na aplicação que resolve o jogo, gerando os números escolhidos, e os vencedores, implemente também um lógica para retornar (gerar) o valor do premio para cada aposta vencedora.
