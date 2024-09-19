@@ -7,3 +7,9 @@ const main = async () => {
         console.log(error);
     }
 }
+
+main()
+.then(() => console.log("conectado com o banco"))
+.catch((err) => console.log(err));
+
+module.exports = mongoose;

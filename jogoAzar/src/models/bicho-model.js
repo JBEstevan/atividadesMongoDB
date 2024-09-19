@@ -1,6 +1,6 @@
 import db from "../conn.js"; // const db = require("../db.js")
 
-const Schema = db.Schema;
+const Schema = conn.Schema;
 
 const bichoSchema = new Schema({
 numeroEscolhido: {
@@ -19,6 +19,6 @@ dataFim: {
     },
 });
 
-const Bicho = db.model("Bicho", bichoSchema);
+const Bicho = conn.model("Bicho", bichoSchema);
 
 export default Bicho;
