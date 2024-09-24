@@ -1,5 +1,5 @@
-import conn from "../conn.js"
-
+import conn from "../../conn.js"
+//NO MODELO EU COLOCO QUAIS OS POSSÍVEIS TIPOS DE DOCUMENTOS VOU TER
 const Schema = conn.Schema;
 
 const filmeSchema = new Schema({
@@ -13,40 +13,11 @@ const filmeSchema = new Schema({
     },
     genero: {
         type: Schema.Types.String,
-        required: true
+        enum: ["TERROR", "ROMANCE", "COMÉDIA"],
+        required: true,
+        default: "COMÉDIA"
     }
 })
-
-const diretorSchema = new Schema({
-    enderecoDiretor: {
-        type: Schema.Types.String,
-        required: true
-    },
-    telefonesDiretor: [{
-        type: Schema.Types.Number,
-        required: true
-    }],
-    anoDiretor: {
-        type: Schema.Types.Date,
-        required: true
-    },
-})
-
-const produtoraSchema = new Schema({
-    nomeProdutora: {
-        type: Schema.Types.String,
-        required: true
-    },
-    enderecoProdutora: {
-        type: Schema.Types.String,
-        required: true
-    },
-    telefonesProdutora: [{
-        type: Schema.Types.Number,
-        required: true
-    }],
-})
-
 
 const Filme = conn.model("filme", filmeSchema);
 
